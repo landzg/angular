@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Clock App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="test.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<div>
+		  <h1>Hello {{name}}</h1>
+		  <p>Name : <input type="text" ng-model="name" value="your name here"></p>
+		</div>
+
+		<div ng-controller="mainCtrl">
+			<p>Current Date is: {{currentDate}}</p>
+			<p>Current Time is: <span ng-bind="currentTime"/></p>
+			<button ng-click="updateTime()">Update Time</button>
+		</div>
+
+		<input type="button" ng-model="button_text">{{button_text}}
+		<div>
+			<p>Select a date: <input type="date" ng-model="inputdate"></p>
+			<p>You selected: {{inputdate}}</p>
+		</div>
+		<div>
+			<input type="checkbox" ng-model="booleanValue"/>
+			<input type="radio" ng-model="radiovalue" value="option1">option1</input>
+			<input type="radio" ng-model="radiovalue" value="option2">option2</input>
+			<input type="radio" ng-model="radiovalue" value="option3">option3</input>
+		</div>
+		<div>
+			<p>Checkbox value is {{booleanValue}}</p>
+			<p>radio value is {{radiovalue}}</p>
+		</div>
+		
+
+		<!-- controller can be nested so is the scope -->
+		<div ng-controller="ctrl1 as c1">
+			<p ng-bind="c1.testProp"></p>
+			<div ng-controller="ctrl2 as c2">
+				<p ng-bind="c2.testProp"></p>
+			</div>
+		</div>
+	</body>
+
+</html> 

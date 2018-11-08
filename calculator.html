@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Calculator App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="calc.js"></script>
+	</head>
+	<body ng-app="calcApp">
+        <h1>Calculator App</h1>
+        <div ng-controller="calcCtrl as ctrl">
+            <input type="text" ng-model="ctrl.num1">
+            <span ng-bind="ctrl.op"></span>
+            <input type="text" ng-model="ctrl.num2">
+            <button ng-click="ctrl.calculate()">=</button>{{ctrl.result}}
+            <p>Choose operation:
+                <button ng-model="ctrl.op" ng-click="ctrl.getOp($event)" value="+">+</button>
+                <button ng-model="ctrl.op" ng-click="ctrl.getOp($event)" value="-">-</button>
+                <button ng-model="ctrl.op" ng-click="ctrl.getOp($event)" value="*">*</button>
+                <button ng-model="ctrl.op" ng-click="ctrl.getOp($event)" value="/">/</button>
+                
+            </p>
+
+            <p>Choose operations from repeats: 
+                <button ng-repeat="button in ctrl.buttons" ng-click="ctrl.getButton(button)">{{button}}</button>
+
+            </p>
+        </div>
+    </body>
+
+</html> 
